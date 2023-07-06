@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Map making with R | Hi, John here</title>
+
+
+<meta property="twitter:site" content="@JohnYumbya">
+<meta property="twitter:creator" content="@JohnYumbya">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="A modern, beautiful, and easily configurable blog theme for Hugo.">
+
+
+<meta property="og:site_name" content="Hi, John here">
+<meta property="og:title" content="Map making with R | Hi, John here">
+<meta property="og:description" content="A modern, beautiful, and easily configurable blog theme for Hugo." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/2019-08-13-map-making-with-r/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/sidebar-listing.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/sidebar-listing.jpg" >
+    
+    
+  <meta itemprop="name" content="Map making with R">
+<meta itemprop="description" content="Maps have been part of human history for a long time; representing the real world on paper and now via the web. The process should be simple, but it’s often challenging to non-GIS people.
+Software such as ArcGIS and QGIS have made map making an easy process, while you will need a license to use the former, the latter is a free and open-source software (FOSS).
+However, R - a statistical programming language has spatial capabilities that can be used for map making."><meta itemprop="datePublished" content="2019-08-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-08-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="581">
+<meta itemprop="keywords" content="R,GIS,maps," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.3b8f190814556942d4024863228a4b8b97d192b40effa20f5fe5d3eed431abd2.css" integrity="sha256-O48ZCBRVaULUAkhjIopLi5fRkrQO/6IPX&#43;XT7tQxq9I=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.e92b1c411fb578ffe6309866f1ae8c3090d6ebd78e64f7fbd73e1ad060c80edc.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Hi, John here">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Map making with R</h1>
+        
+        <p class="f6 measure lh-copy mv1">By John Mutua in <a href="/categories/r">R</a>  <a href="/categories/gis">GIS</a>  <a href="/categories/maps">maps</a> </p>
+        <p class="f7 db mv0 ttu">August 13, 2019</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p>Maps have been part of human history for a long time; representing the real world on paper and now via the 
+<a href="https://en.wikipedia.org/wiki/Web_mapping" target="_blank" rel="noopener">web</a>. The process should be simple, but it’s often challenging to non-GIS people.</p>
+<p>Software such as 
+<a href="https://www.arcgis.com/index.html" target="_blank" rel="noopener">ArcGIS</a> and 
+<a href="https://qgis.org/en/site/" target="_blank" rel="noopener">QGIS</a> have made map making an easy process, while you will need a license to use the former, the latter is a free and open-source software (FOSS).</p>
+<p>However, R - a statistical programming language has spatial capabilities that can be used for map making. This tutorial introduces the fundamentals of map making using R.</p>
+<p>For this tutorial, we will need several pckages that can be installed with:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">install.packages</span>(<span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;ggplot2&#34;</span>, <span style="color:#d14">&#34;ggspatial&#34;</span>, <span style="color:#d14">&#34;sf&#34;</span>, <span style="color:#d14">&#34;rnaturalearth&#34;</span>))
+</span></span></code></pre></div><p>First, we set our working directory. This is the place where you will read and keep all your outputs.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>iDir <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#d14">&#34;~/&#34;</span>
+</span></span></code></pre></div><p>We then load two packages, (i) <code>ggplot2</code> and (ii) <code>sf</code>, these are necessary for all maps.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(ggplot2)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(sf)
+</span></span></code></pre></div><p>We access a map of entire countries of the world using <code>rnaturalearth</code> package and further through <code>ne_countries</code> function, pull country level data.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(<span style="color:#d14">&#34;rnaturalearth&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>aoi <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">ne_countries</span>(scale <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;medium&#34;</span>, returnclass <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;sf&#34;</span>)
+</span></span></code></pre></div><p>We now have data that we can plot by creating a base map of the world using <code>ggplot2</code> package and <code>ggplot</code> function as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_sf</span>()
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-plot-1.png" width="90%" />
+<p>Further, we can add a title using <code>ggtitle</code> function, By default, Axis names are absent on a map, but can be changed to more suitable ones like &ldquo;Longitude&rdquo;&hellip;.&ldquo;Latitude&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_sf</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">xlab</span>(<span style="color:#d14">&#34;Longitude&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#900;font-weight:bold">ylab</span>(<span style="color:#d14">&#34;Latitude&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ggtitle</span>(<span style="color:#d14">&#34;World map&#34;</span>, subtitle <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">paste0</span>(<span style="color:#d14">&#34;(&#34;</span>, <span style="color:#900;font-weight:bold">length</span>(<span style="color:#900;font-weight:bold">unique</span>(aoi<span style="color:#000;font-weight:bold">$</span>NAME)), <span style="color:#d14">&#34; countries)&#34;</span>))
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-title-1.png" width="90%" />
+<p>We now add some color by filling the polygons of the countries with a color, using argument <code>fill</code> and red for the outline of the countries using argument <code>color</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span> 
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_sf</span>(color <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;red&#34;</span>, fill <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;blue&#34;</span>)
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-colors-1.png" width="90%" />
+<p>Visualization can get more interesting when you can show a gradient on one variable of the data - here we show the population of each country using the <code>viridis</code> scale through the <code>option = &quot;plasma&quot;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">geom_sf</span>(<span style="color:#900;font-weight:bold">aes</span>(fill <span style="color:#000;font-weight:bold">=</span> pop_est)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">scale_fill_viridis_c</span>(option <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;plasma&#34;</span>)
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-colors-pop-1.png" width="90%" />
+<p>The object <code>aoi</code> contains various data that can be visualized. You can view what&rsquo;s vailable through <code>names(world)</code>. Here we visualize economies.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">geom_sf</span>(<span style="color:#900;font-weight:bold">aes</span>(fill <span style="color:#000;font-weight:bold">=</span> economy)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">scale_fill_discrete</span>()
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-colors-economy-1.png" width="90%" />
+<p>We can zoom in to any area of interest e.g Kenya, by setting the extent of the map using <code>coord_sf</code> function, and providing limits on the x-axis (<code>xlim</code>), and on the y-axis (<code>ylim</code>).</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">geom_sf</span>() <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#900;font-weight:bold">coord_sf</span>(xlim <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">33</span>, <span style="color:#099">42</span>), ylim <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">-5</span>, <span style="color:#099">5.9</span>), expand <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>)
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/world-zoom-1.png" width="65%" />
+<p>And add afew more elements to the map, but lets first load the <code>ggspatial</code> package through <code>library(ggspatial)</code>. Check out these functions: <code>annotation_scale</code>, <code>annotation_north_arrow</code> and <code>coord_sf</code> and arguments: <code>legend.position</code> will automatically place the legend at a specific location, <code>panel.grid.major</code> and <code>panel.grid.minor</code> sets grid lines to gray color and have them appear dashed, <code>panel.background</code> colors the background. For more arguments see the function <code>theme</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data <span style="color:#000;font-weight:bold">=</span> aoi) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_sf</span>(fill<span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;antiquewhite&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">annotation_scale</span>(location <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;bl&#34;</span>, width_hint <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.45</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">annotation_north_arrow</span>(location <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;bl&#34;</span>, which_north <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;true&#34;</span>, 
+</span></span><span style="display:flex;"><span>                         pad_x <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">unit</span>(<span style="color:#099">0.6</span>, <span style="color:#d14">&#34;in&#34;</span>), pad_y <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">unit</span>(<span style="color:#099">0.4</span>, <span style="color:#d14">&#34;in&#34;</span>),
+</span></span><span style="display:flex;"><span>                         style <span style="color:#000;font-weight:bold">=</span> north_arrow_fancy_orienteering) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">coord_sf</span>(xlim <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">33</span>, <span style="color:#099">42</span>), ylim <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">-5</span>, <span style="color:#099">5.9</span>), expand <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">FALSE</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">xlab</span>(<span style="color:#d14">&#34;Longitude&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#900;font-weight:bold">ylab</span>(<span style="color:#d14">&#34;Latitude&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ggtitle</span>(<span style="color:#d14">&#34;Map of Kenya&#34;</span>)
+</span></span></code></pre></div><img src="/blog/2019-08-13-map-making-with-r/index_files/figure-html/kenya-final-1.png" width="65%" />
+<p>Finally we save the map using <code>ggsave</code> function. Luckily, we have a choice of image formats to chose from e.g. PNG, JPEG, PDF etc Here we use PNG which is good for the web.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggsave</span>(<span style="color:#900;font-weight:bold">paste0</span>(iDir, <span style="color:#d14">&#34;/&#34;</span>), <span style="color:#d14">&#34;my_map.png&#34;</span>, width <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">6</span>, height <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">6</span>, dpi <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;screen&#34;</span>)
+</span></span></code></pre></div>
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">August 13, 2019</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">3 minute read, 581 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/r">R</a>  <a href="/categories/gis">GIS</a>  <a href="/categories/maps">maps</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/r">R</a>  <a href="/tags/gis">GIS</a>  <a href="/tags/maps">maps</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/2020-04-09-covid-19-in-africa/">COVID-19 in Africa</a></dd>
+    
+    <dd class="fw5 ml0"><a href="/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/">Don&#39;t use spreadsheets for more than what they are for</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+    <a class="prev dtc pr2 tl v-top fw6"
+    href="/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/">&larr; Don&#39;t use spreadsheets for more than what they are for</a>
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/2019-07-09-hello-world/">Hello world &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2023 John Mutua
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/ymutua" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.facebook.com/xmutua" title="facebook-square" target="_blank" rel="me noopener">
+      <i class="fab fa-facebook-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.instagram.com/jymutua" title="instagram" target="_blank" rel="me noopener">
+      <i class="fab fa-instagram fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/JohnYumbya" title="twitter" target="_blank" rel="me noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://impactstory.org/u/0000-0003-2314-3146" title="impactstory" target="_blank" rel="me noopener">
+      <i class="ai ai-impactstory fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2314-3146" title="orcid" target="_blank" rel="me noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

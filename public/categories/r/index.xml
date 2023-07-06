@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>R on Hi, John here</title>
+    <link>/categories/r/</link>
+    <description>Recent content in R on Hi, John here</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 13 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/r/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Map making with R</title>
+      <link>/blog/2019-08-13-map-making-with-r/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019-08-13-map-making-with-r/</guid>
+      <description>Maps have been part of human history for a long time; representing the real world on paper and now via the web. The process should be simple, but it’s often challenging to non-GIS people.
+Software such as ArcGIS and QGIS have made map making an easy process, while you will need a license to use the former, the latter is a free and open-source software (FOSS).
+However, R - a statistical programming language has spatial capabilities that can be used for map making.</description>
+    </item>
+    
+  </channel>
+</rss>
