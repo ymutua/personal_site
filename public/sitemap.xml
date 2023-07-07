@@ -53,25 +53,22 @@
     <loc>/categories/meetup/</loc>
     <lastmod>2021-01-01T14:15:59-06:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/2020-04-09-covid-19-in-africa/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/general/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/r/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/talk/seedling/</loc>
     <lastmod>2020-01-13T14:15:59-06:00</lastmod>
   </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/general/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
     <lastmod>2019-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/gis/</loc>
