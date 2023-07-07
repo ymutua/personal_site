@@ -26,15 +26,6 @@
     </item>
     
     <item>
-      <title>General</title>
-      <link>/categories/general/</link>
-      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/general/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>GIS</title>
       <link>/categories/gis/</link>
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
@@ -58,6 +49,15 @@
       <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>/categories/general/</link>
+      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/general/</guid>
       <description></description>
     </item>
     

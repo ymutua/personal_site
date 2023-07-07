@@ -57,19 +57,7 @@
     <lastmod>2020-01-13T14:15:59-06:00</lastmod>
   </url><url>
     <loc>/blog/</loc>
-    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</loc>
-    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/general/</loc>
-    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
-    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/tags/gis/</loc>
     <lastmod>2019-08-13T00:00:00+00:00</lastmod>
@@ -86,8 +74,17 @@
     <loc>/categories/maps/</loc>
     <lastmod>2019-08-13T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/categories/r/</loc>
     <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2019-08-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/general/</loc>
+    <lastmod>2019-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/2019-07-09-hello-world/</loc>
     <lastmod>2019-07-09T00:00:00+00:00</lastmod>
