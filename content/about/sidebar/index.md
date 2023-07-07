@@ -7,10 +7,10 @@ show_social_links: true # specify social accounts in site config
 audio_link_label: "" # leave blank to exclude
 link_list_label: "Interests" # bookmarks, elsewhere, etc.
 link_list:
-- name: Nairobi
-  url: https://en.wikipedia.org/wiki/Nairobi
 - name: Pixie fruit
   url: https://en.wikipedia.org/wiki/Pixie_mandarin
+- name: Nairobi
+  url: https://en.wikipedia.org/wiki/Nairobi
 - name: People
   url: https://en.wikipedia.org/wiki/People
 ---

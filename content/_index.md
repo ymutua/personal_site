@@ -3,7 +3,7 @@ action_label: Read More &rarr;
 action_link: /about
 action_type: text
 description: Hi there! I’m a geographer turned geospatial scientist, my professional trajectory makes perfect sense once you get to know me. 
-            I am passionate about the utilizing geospatial technology to enhance decision support systems and effectively scale proven 
+            I am passionate about utilizing geospatial technology to enhance decision support systems and effectively scale proven 
             concepts into practical decision support tools. Inside, you’ll find my writing about products and projects I’ve worked on.
 
 image_right: right

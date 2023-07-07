@@ -2,7 +2,7 @@
 date: "2019-02-25T13:38:41-06:00"
 description: This form is for contacting me about opportunities to work together, speaking engagements, or mentorship requests. This is NOT a form for requesting help. I do not accept guest blog posts or requests for placing links in posts.
 draft: false
-formspree_form_id: id-from-formspree
+formspree_form_id: https://formspree.io/f/xvojogwo
 layout: split-right
 name: Contact Us Form
 show_poweredby_formspree: true
