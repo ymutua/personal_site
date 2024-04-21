@@ -11,10 +11,6 @@ tags:
   - GIS
   - maps
   - R
-subtitle: ''
-excerpt: ''
-series: ~
-layout: single
 ---
 
 
