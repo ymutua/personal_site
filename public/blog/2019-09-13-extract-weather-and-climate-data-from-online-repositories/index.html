@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head>
+  
+                           
+     
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="generator" content="Hugo 0.101.0" />
+<title>Extract weather and climate data from online repositories | Hi, John here</title>
+
+
+<meta property="twitter:site" content="@JohnYumbya">
+<meta property="twitter:creator" content="@JohnYumbya">
+
+
+
+
+
+
+
+  
+    
+  
+<meta name="description" content="A modern, beautiful, and easily configurable blog theme for Hugo.">
+
+
+<meta property="og:site_name" content="Hi, John here">
+<meta property="og:title" content="Extract weather and climate data from online repositories | Hi, John here">
+<meta property="og:description" content="A modern, beautiful, and easily configurable blog theme for Hugo." />
+<meta property="og:type" content="page" />
+<meta property="og:url" content="/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/" />
+<meta property="og:locale" content="en">
+
+
+
+
+    
+        <meta property="og:image" content="/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/featured.jpg" >
+        <meta property="twitter:card" content="summary_large_image">
+        <meta name="twitter:image" content="/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/featured.jpg" >
+    
+    
+  <meta itemprop="name" content="Extract weather and climate data from online repositories">
+<meta itemprop="description" content="In a world experiencing climate change, good weather and climate data matters. It may be available but often hard to find, understand and apply to decision-making mainly because:
+There are no weather stations everywhere Weather stations are not in good condition (gaps) The data is not stored correctly The data does not pass the basic quality controls Access to data is restricted However, weather and climate data products derived from satellites and model-based reanalysis have been used in locations where station based observations are inadequate or incomplete."><meta itemprop="datePublished" content="2019-09-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-09-13T00:00:00+00:00" />
+<meta itemprop="wordCount" content="507"><meta itemprop="image" content="/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/featured.jpg">
+<meta itemprop="keywords" content="GIS,maps,R," />
+  
+  
+  <!--[if IE]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="/img/favicon.ico" type="image/x-icon">
+  
+  
+  <link rel="stylesheet" href="/style.main.min.3b8f190814556942d4024863228a4b8b97d192b40effa20f5fe5d3eed431abd2.css" integrity="sha256-O48ZCBRVaULUAkhjIopLi5fRkrQO/6IPX&#43;XT7tQxq9I=" media="screen">
+  
+  
+  <script src="/panelset.min.dca42702d7daf6fd31dc352efd2bcf0e4ac8c05ccaa58d9293f6177462de5d5f.js" type="text/javascript"></script>
+  
+  
+  <script src="/main.min.e92b1c411fb578ffe6309866f1ae8c3090d6ebd78e64f7fbd73e1ad060c80edc.js" type="text/javascript"></script>
+</head>
+<body>
+      <div class="grid-container single">
+<header class="site-header pt4 pb2 mb4 bb b--transparent ph5 headroom z-max" role="banner">
+  <nav class="site-nav db dt-l w-100" role="navigation">
+    <a class="site-brand db dtc-l v-mid link no-underline w-100 w-33-l tc tl-l" href="/" title="Home">
+      <img src="/img/blogophonic-mark-dark.png" class="dib db-l h2 w-auto" alt="Hi, John here">
+    </a>
+    <div class="site-links db dtc-l v-mid w-100 w-47-l tc tr-l mt3 mt0-l ttu tracked">
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/about/" title="About Blogophonic">About</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 active" href="/blog/" title="Blog">Blog</a>
+      
+        
+        
+        
+      <a class="link f6 f5-l dib pv1 ph2 " href="/project/" title="Project Portfolio">Projects</a>
+      
+      
+    </div>
+  </nav>
+</header>
+
+<main class="page-main pa4" role="main">
+  <section class="page-content mw7 center">
+    <article class="post-content pa0 ph4-l">
+      <header class="post-header">
+        <h1 class="f1 lh-solid measure-narrow mb3 fw4">Extract weather and climate data from online repositories</h1>
+        
+        <p class="f6 measure lh-copy mv1">By John Mutua in <a href="/categories/gis">GIS</a>  <a href="/categories/r">R</a>  <a href="/categories/maps">maps</a> </p>
+        <p class="f7 db mv0 ttu">September 13, 2019</p>
+
+      
+
+      </header>
+      <section class="post-body pt5 pb4">
+        <p>In a world experiencing climate change, good weather and climate data matters. It may be available but often hard to find, understand and apply to decision-making mainly because:</p>
+<ul>
+<li>There are no weather stations everywhere</li>
+<li>Weather stations are not in good condition (gaps)</li>
+<li>The data is not stored correctly</li>
+<li>The data does not pass the basic quality controls</li>
+<li>Access to data is restricted</li>
+</ul>
+<p>However, weather and climate data products derived from satellites and model-based reanalysis have been used in locations where station based observations are inadequate or incomplete.</p>
+<p>We will explore methods of extracting weather and climate data from 
+<a href="https://power.larc.nasa.gov/data-access-viewer/" target="_blank" rel="noopener">NASA Power</a></p>
+<p>If you chose to extract data from NASA Power, have your coordinates ready then visit the NASA Power 
+<a href="https://power.larc.nasa.gov/data-access-viewer/" target="_blank" rel="noopener">website</a> and download manually.</p>
+<p><img src="images/nasa_power.png" alt="">
+However, this can be painful if you have alot of sites. The solution is to develop custom scripts to automate downloading. For this you&rsquo;ll need:</p>
+<ul>
+<li>R</li>
+<li>RStudio (<em>optional</em>)</li>
+<li>Packages to make easier management of the data</li>
+<li>Your list of stations with coordinates stored as a <code>.csv</code> file</li>
+</ul>
+<p>We will extract two parameters i.e. precipitation and temperature, on a daily time step. For more information about other parameters nand temporal resolutions available see 
+<a href="https://power.larc.nasa.gov/docs/v1/" target="_blank" rel="noopener">here</a>. The API allows you to:</p>
+<ul>
+<li>Make HTTPS GET calls to the POWER data archives directly.</li>
+<li>Integrate the service into your own applications.</li>
+</ul>
+<p>For a sample SinglePoint, 
+<a href="https://power.larc.nasa.gov/cgi-bin/v1/DataAccess.py?request=execute&amp;identifier=SinglePoint&amp;parameters=T2M,PS,ALLSKY_SFC_SW_DWN&amp;startDate=20160301&amp;endDate=20160331&amp;userCommunity=SSE&amp;tempAverage=DAILY&amp;outputList=JSON,ASCII&amp;lat=36&amp;lon=45&amp;user=anonymous" target="_blank" rel="noopener">here</a> is the call to the API.</p>
+<p>The <code>nasapower</code> R package has been developed for this! It makes it easy to:</p>
+<ul>
+<li>Automate downloading from NASA-POWER website.</li>
+<li>Generate input data for use in crop models like 
+<a href="http://www.apsim.info/" target="_blank" rel="noopener">APSIM</a> or 
+<a href="https://dssat.net/" target="_blank" rel="noopener">DSSAT</a>.</li>
+</ul>
+<p>To pull daily data from the API for a single coordinate, you will first need to load <code>nasapower</code> R package through , then use the <code>get_power</code> function as shown below.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>daily_ag <span style="color:#000;font-weight:bold">&lt;-</span> nasapower<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">get_power</span>(community <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;ag&#34;</span>,
+</span></span><span style="display:flex;"><span>                      lonlat <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">43.13333</span>, <span style="color:#099">11.55</span>),
+</span></span><span style="display:flex;"><span>                      pars <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;T2M&#34;</span>, <span style="color:#d14">&#34;PRECTOTCORR&#34;</span>),
+</span></span><span style="display:flex;"><span>                      dates <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;2010-01-01&#34;</span>,
+</span></span><span style="display:flex;"><span>                      temporal_api <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;daily&#34;</span>
+</span></span><span style="display:flex;"><span>                      )
+</span></span></code></pre></div><p>What about many sites? i.e <code>sites &gt; 1</code>. For this, you will need a bunch of libraries besides <code>nasapower</code> R package.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(nasapower)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(data.table)
+</span></span><span style="display:flex;"><span><span style="color:#900;font-weight:bold">library</span>(tidyverse)
+</span></span></code></pre></div><p>Next, create your own station data.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>ID <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;63125&#34;</span>, <span style="color:#d14">&#34;63021&#34;</span>, <span style="color:#d14">&#34;63023&#34;</span>)
+</span></span><span style="display:flex;"><span>Lat <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">11.55</span>, <span style="color:#099">15.283333</span>, <span style="color:#099">15.616667</span>)
+</span></span><span style="display:flex;"><span>Long <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#099">43.133333</span>, <span style="color:#099">38.916667</span>, <span style="color:#099">39.45</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sites <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">data.frame</span>(ID, Lat, Long)
+</span></span></code></pre></div><p>Create a list to store your data.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>daily_ag <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">list</span>()
+</span></span></code></pre></div><p>Using a <code>for</code> loop, download for each station.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">for</span>(i in <span style="color:#099">1</span><span style="color:#000;font-weight:bold">:</span><span style="color:#900;font-weight:bold">nrow</span>(sites)){
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  site_row<span style="color:#000;font-weight:bold">&lt;-</span> sites[i,]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  daily_ag[[i]] <span style="color:#000;font-weight:bold">&lt;-</span> nasapower<span style="color:#000;font-weight:bold">::</span><span style="color:#900;font-weight:bold">get_power</span>(community <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;ag&#34;</span>,
+</span></span><span style="display:flex;"><span>                             lonlat <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(site_row<span style="color:#000;font-weight:bold">$</span>Long, site_row<span style="color:#000;font-weight:bold">$</span>Lat),
+</span></span><span style="display:flex;"><span>                             pars <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;T2M&#34;</span>, <span style="color:#d14">&#34;PRECTOTCORR&#34;</span>),
+</span></span><span style="display:flex;"><span>                             dates <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">c</span>(<span style="color:#d14">&#34;2008-01-01&#34;</span>, <span style="color:#d14">&#34;2018-12-31&#34;</span>),
+</span></span><span style="display:flex;"><span>                             temporal_api <span style="color:#000;font-weight:bold">=</span> <span style="color:#d14">&#34;daily&#34;</span>)
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  site_id <span style="color:#000;font-weight:bold">=</span> site_row<span style="color:#000;font-weight:bold">$</span>ID 
+</span></span><span style="display:flex;"><span>  
+</span></span><span style="display:flex;"><span>  daily_ag[[i]]<span style="color:#000;font-weight:bold">$</span>site_id <span style="color:#000;font-weight:bold">&lt;-</span> site_id
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Create one data table from the list saved above.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>data <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">rbindlist</span>(daily_ag)
+</span></span></code></pre></div><p>We can do some visualization. But first let&rsquo;s group the data by <code>site_id</code> then <code>YEAR</code> using pipes: <em>read as, and then</em>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span>data_prec <span style="color:#000;font-weight:bold">&lt;-</span> data <span style="color:#000;font-weight:bold">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">group_by</span>(site_id, YEAR) <span style="color:#000;font-weight:bold">%&gt;%</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">summarize</span>(annual_prec <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">sum</span>(PRECTOTCORR, na.rm <span style="color:#000;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">TRUE</span>))
+</span></span></code></pre></div><p>The dataset has three variables that need fixing.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#998;font-style:italic"># color and split variables</span>
+</span></span><span style="display:flex;"><span>data_prec<span style="color:#000;font-weight:bold">$</span>site_id <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.factor</span>(data_prec<span style="color:#000;font-weight:bold">$</span>site_id)
+</span></span><span style="display:flex;"><span>data_prec<span style="color:#000;font-weight:bold">$</span>YEAR <span style="color:#000;font-weight:bold">&lt;-</span> <span style="color:#900;font-weight:bold">as.factor</span>(data_prec<span style="color:#000;font-weight:bold">$</span>YEAR)
+</span></span></code></pre></div><p>Plot annual precipitation.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-r" data-lang="r"><span style="display:flex;"><span><span style="color:#900;font-weight:bold">ggplot</span>(data_prec, <span style="color:#900;font-weight:bold">aes</span>(x <span style="color:#000;font-weight:bold">=</span> YEAR, 
+</span></span><span style="display:flex;"><span>                           y <span style="color:#000;font-weight:bold">=</span> annual_prec, 
+</span></span><span style="display:flex;"><span>                           color <span style="color:#000;font-weight:bold">=</span> site_id,
+</span></span><span style="display:flex;"><span>                           group <span style="color:#000;font-weight:bold">=</span> site_id)) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_line</span>()<span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">geom_point</span>()<span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">ggtitle</span>(<span style="color:#d14">&#34;Average Annual Precipitation&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">xlab</span>(<span style="color:#d14">&#34;Year&#34;</span>) <span style="color:#000;font-weight:bold">+</span> <span style="color:#900;font-weight:bold">ylab</span>(<span style="color:#d14">&#34;Annual Precipitation&#34;</span>) <span style="color:#000;font-weight:bold">+</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#900;font-weight:bold">theme</span>(plot.title <span style="color:#000;font-weight:bold">=</span> <span style="color:#900;font-weight:bold">element_text</span>(hjust <span style="color:#000;font-weight:bold">=</span> <span style="color:#099">0.5</span>))
+</span></span></code></pre></div><img src="/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/index_files/figure-html/annual_prec-1.png" width="90%" />
+
+        
+        <details closed class="f6 fw7 input-reset">
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Posted on:</dt>
+    <dd class="fw5 ml0">September 13, 2019</dd>
+  </dl>
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Length:</dt>
+    <dd class="fw5 ml0">3 minute read, 507 words</dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Categories:</dt>
+    <dd class="fw5 ml0"> <a href="/categories/gis">GIS</a>  <a href="/categories/r">R</a>  <a href="/categories/maps">maps</a> </dd>
+  </dl>
+  
+  
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">Tags:</dt>
+    <dd class="fw5 ml0"> <a href="/tags/gis">GIS</a>  <a href="/tags/maps">maps</a>  <a href="/tags/r">R</a> </dd>
+  </dl>
+  
+  <dl class="f6 lh-copy">
+    <dt class="fw7">See Also:</dt>
+    
+    <dd class="fw5 ml0"><a href="/blog/2019-08-13-map-making-with-r/">Map making with R</a></dd>
+    
+  </dl>
+</details>
+
+      </section>
+      <footer class="post-footer">
+        <div class="post-pagination dt w-100 mt4 mb2">
+  
+  
+  
+  
+    <a class="next dtc pl2 tr v-top fw6"
+    href="/blog/2019-08-13-map-making-with-r/">Map making with R &rarr;</a>
+  
+</div>
+
+      </footer>
+    </article>
+    
+      
+<div class="post-comments pa0 pa4-l mt4">
+  
+  <script src="https://utteranc.es/client.js"
+          repo="apreshill/apero"
+          issue-term="pathname"
+          theme="boxy-light"
+          label="comments :crystal_ball:"
+          crossorigin="anonymous"
+          async
+          type="text/javascript">
+  </script>
+  
+</div>
+
+    
+  </section>
+</main>
+<footer class="site-footer pv4 bt b--transparent ph5" role="contentinfo">
+  <nav class="db dt-l w-100">
+    <p class="site-copyright f7 db dtc-l v-mid w-100 w-33-l tc tl-l pv2 pv0-l mv0 lh-copy">
+      &copy; 2024 John Mutua
+      <span class="middot-divider"></span>
+      Made with <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/hugo-apero/" rel="dct:source">Hugo Apéro</a></span>.
+      <br />
+      
+Based on <span xmlns:dct="http://purl.org/dc/terms/" property="dct:title"><a xmlns:dct="http://purl.org/dc/terms/" href="https://github.com/formspree/blogophonic-hugo" rel="dct:source">Blogophonic</a></span> by <a xmlns:cc="http://creativecommons.org/ns#" href="https://formspree.io" property="cc:attributionName" rel="cc:attributionURL">Formspree</a>.
+    </p>
+    
+    <div class="site-social-links db dtc-l v-mid w-100 w-33-l tc pv2 pv0-l mv0">
+      <div class="social-icon-links" aria-hidden="true">
+  
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://github.com/ymutua" title="github" target="_blank" rel="me noopener">
+      <i class="fab fa-github fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.facebook.com/xmutua" title="facebook-square" target="_blank" rel="me noopener">
+      <i class="fab fa-facebook-square fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://www.instagram.com/jymutua" title="instagram" target="_blank" rel="me noopener">
+      <i class="fab fa-instagram fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://twitter.com/JohnYumbya" title="twitter" target="_blank" rel="me noopener">
+      <i class="fab fa-twitter fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://impactstory.org/u/0000-0003-2314-3146" title="impactstory" target="_blank" rel="me noopener">
+      <i class="ai ai-impactstory fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="https://orcid.org/0000-0003-2314-3146" title="orcid" target="_blank" rel="me noopener">
+      <i class="ai ai-orcid fa-lg fa-fw"></i>
+    </a>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <a class="link dib h1 w1 ml0 mr2 f6 o-90 glow" href="/blog/index.xml" title="rss" >
+      <i class="fas fa-rss fa-lg fa-fw"></i>
+    </a>
+  
+</div>
+
+    </div>
+    
+    <div class="site-links f6 db dtc-l v-mid w-100 w-67-l tc tr-l pv2 pv0-l mv0">
+      
+      <a class="dib pv1 ph2 link" href="/license/" title="License">License</a>
+      
+      <a class="dib pv1 ph2 link" href="/contact/" title="Contact form">Contact</a>
+      
+    </div>
+  </nav>
+  
+    <script>
+
+    var i, text, code, codes = document.getElementsByTagName('code');
+    for (let i = 0; i < codes.length;) {
+      code = codes[i];
+      if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+        text = code.textContent;
+        if (/^\$[^$]/.test(text) && /[^$]\$$/.test(text)) {
+          text = text.replace(/^\$/, '\\(').replace(/\$$/, '\\)');
+          code.textContent = text;
+        }
+        if (/^\\\((.|\s)+\\\)$/.test(text) ||
+            /^\\\[(.|\s)+\\\]$/.test(text) ||
+            /^\$(.|\s)+\$$/.test(text) ||
+            /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+          code.outerHTML = code.innerHTML;  
+          continue;
+        }
+      }
+      i++;
+    }
+</script>
+
+  
+    
+    
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.css" integrity="sha384-RZU/ijkSsFbcmivfdRBQDtwuwVqK7GMOw6IMvKyeWL2K5UAlyp6WonmB8m7Jd0Hn" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/katex.min.js" integrity="sha384-pK1WpvzWVBQiP0/GjnvRxV4mOb0oxFuyRxJlk6vVw146n3egcN5C925NCP7a7BY8" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.13/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+
+
+    
+  
+  
+</footer>
+
+      </div>
+    </body>
+</html>

@@ -13,7 +13,6 @@ tags:
   - R
 subtitle: ''
 excerpt: ''
-draft: yes
 series: ~
 layout: single
 ---
