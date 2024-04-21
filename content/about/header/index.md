@@ -7,7 +7,7 @@ headline: |
 ---
 
 <!-- this is a subheadline -->
-I am a PhD Candidate at the School of Geosciences, University of Edinburgh, United Kingdom. :gb: 
+I am a PhD Candidate in the lab of [Dr. Gary Watmough](https://www.research.ed.ac.uk/en/persons/gary-watmough) at the School of Geosciences, University of Edinburgh, United Kingdom. :gb: 
 
 My research is aimed at quantifying livestock diets for improved estimation of greenhouse 
 gas emissions from livestock systems in Kenya. Prior to beginning my PhD, I worked as a geospatial analyst at [Alliance of Bioversity International and CIAT](https://alliancebioversityciat.org), a research and development organisation affiliated with the CGIAR. I hold a master’s degree in Climate Change Adaptation from University of Nairobi and a Bachelor’s degree in Geography from Moi University, Kenya.
