@@ -7,12 +7,6 @@ categories:
   - crops
   - livestock
   - systems
-tags: []
-subtitle: ''
-excerpt: ''
-draft: yes
-series: ~
-layout: single
 ---
 
 A substantial part of my work over the years has been on crop and livestock systems, where I work to understand their functioning and response in East Africa, and how they can be transformed to be more productive. I have focused on how spatial modeling can contribute to decision making agricultural systems. 

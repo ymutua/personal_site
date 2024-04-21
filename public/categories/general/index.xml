@@ -6,7 +6,26 @@
     <description>Recent content in General on Hi, John here</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 09 Jul 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Apr 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/general/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>COVID-19 in Africa</title>
+      <link>/blog/2020-04-09-covid-19-in-africa/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020-04-09-covid-19-in-africa/</guid>
+      <description>The unreasonable effectiveness of public work talk was given by David Robinson during rstudio::conf 2019, it&amp;rsquo;s still very relevant - Let&amp;rsquo;s collaborate and communicate more!
+First forward, the current COVID-19 pandemic led me into looking into publicly available data more closely and came up with a dashboard that was picked up by Locus Geosystems - a local Kenyan startup, with more hands on it now I am amazed at what they have done so far.</description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t use spreadsheets for more than what they are for</title>
+      <link>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</guid>
+      <description>I am surprised by how often spreadsheets are used for things they are not really good for when there are better alternatives.</description>
+    </item>
+    
     <item>
       <title>Hello world</title>
       <link>/blog/2019-07-09-hello-world/</link>

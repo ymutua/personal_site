@@ -29,16 +29,31 @@
     <loc>/collection/day02/03-blogdown/</loc>
     <lastmod>2021-01-02T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>/blog/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/crops/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/livestock/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/blog/2021-03-31-my-research-is-transforming-stay-tuned/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/systems/</loc>
+    <lastmod>2021-03-31T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/collection/</loc>
     <lastmod>2021-01-26T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/</loc>
-    <lastmod>2021-01-26T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/talk/campfire/</loc>
-    <lastmod>2021-01-12T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/</loc>
     <lastmod>2021-01-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/talk/</loc>
@@ -53,11 +68,23 @@
     <loc>/categories/meetup/</loc>
     <lastmod>2021-01-01T14:15:59-06:00</lastmod>
   </url><url>
+    <loc>/blog/2020-04-09-covid-19-in-africa/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/categories/general/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/r/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/tags/</loc>
+    <lastmod>2020-04-09T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>/talk/seedling/</loc>
     <lastmod>2020-01-13T14:15:59-06:00</lastmod>
   </url><url>
-    <loc>/blog/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
+    <loc>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</loc>
+    <lastmod>2019-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/2019-09-13-extract-weather-and-climate-data-from-online-repositories/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
@@ -74,20 +101,11 @@
     <loc>/categories/maps/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/tags/r/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/categories/r/</loc>
-    <lastmod>2019-09-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/tags/</loc>
     <lastmod>2019-09-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/2019-08-13-map-making-with-r/</loc>
     <lastmod>2019-08-13T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>/categories/general/</loc>
-    <lastmod>2019-07-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/blog/2019-07-09-hello-world/</loc>
     <lastmod>2019-07-09T00:00:00+00:00</lastmod>

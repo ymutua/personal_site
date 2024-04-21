@@ -7,11 +7,6 @@ categories:
   - General
 tags:
   - R
-subtitle: ''
-excerpt: ''
-draft: yes
-series: ~
-layout: single  
 ---
 
 [The unreasonable effectiveness of public work](https://resources.rstudio.com/rstudio-conf-2019/the-unreasonable-effectiveness-of-public-work) talk was given by [David Robinson](https://twitter.com/drob) during **rstudio::conf 2019**, it's still very relevant - Let's collaborate and communicate more!

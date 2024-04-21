@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>crops on Hi, John here</title>
+    <link>/categories/crops/</link>
+    <description>Recent content in crops on Hi, John here</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/crops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My research is transforming, stay tuned!</title>
+      <link>/blog/2021-03-31-my-research-is-transforming-stay-tuned/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2021-03-31-my-research-is-transforming-stay-tuned/</guid>
+      <description>A substantial part of my work over the years has been on crop and livestock systems, where I work to understand their functioning and response in East Africa, and how they can be transformed to be more productive. I have focused on how spatial modeling can contribute to decision making agricultural systems.
+My research is transforming! towards livestock systems. A year ago, I led the development of a new method to map and assess heat stress in pigs.</description>
+    </item>
+    
+  </channel>
+</rss>

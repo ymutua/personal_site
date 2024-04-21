@@ -6,7 +6,7 @@
     <description>Recent content in John Mutua on Hi, John here</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Netlify</title>
       <link>/collection/day02/01-netlify/</link>
@@ -87,6 +87,16 @@ My content section is: collection My layout is: single-series part 2! does this 
     </item>
     
     <item>
+      <title>My research is transforming, stay tuned!</title>
+      <link>/blog/2021-03-31-my-research-is-transforming-stay-tuned/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2021-03-31-my-research-is-transforming-stay-tuned/</guid>
+      <description>A substantial part of my work over the years has been on crop and livestock systems, where I work to understand their functioning and response in East Africa, and how they can be transformed to be more productive. I have focused on how spatial modeling can contribute to decision making agricultural systems.
+My research is transforming! towards livestock systems. A year ago, I led the development of a new method to map and assess heat stress in pigs.</description>
+    </item>
+    
+    <item>
       <title>A campfire</title>
       <link>/talk/campfire/</link>
       <pubDate>Tue, 12 Jan 2021 00:00:00 +0000</pubDate>
@@ -105,12 +115,31 @@ My content section is: collection My layout is: single-series part 2! does this 
     </item>
     
     <item>
+      <title>COVID-19 in Africa</title>
+      <link>/blog/2020-04-09-covid-19-in-africa/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2020-04-09-covid-19-in-africa/</guid>
+      <description>The unreasonable effectiveness of public work talk was given by David Robinson during rstudio::conf 2019, it&amp;rsquo;s still very relevant - Let&amp;rsquo;s collaborate and communicate more!
+First forward, the current COVID-19 pandemic led me into looking into publicly available data more closely and came up with a dashboard that was picked up by Locus Geosystems - a local Kenyan startup, with more hands on it now I am amazed at what they have done so far.</description>
+    </item>
+    
+    <item>
       <title>A seedling</title>
       <link>/talk/seedling/</link>
       <pubDate>Mon, 13 Jan 2020 14:15:59 -0600</pubDate>
       
       <guid>/talk/seedling/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>Don&#39;t use spreadsheets for more than what they are for</title>
+      <link>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</link>
+      <pubDate>Sun, 01 Dec 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/blog/2019-12-01-don-t-use-spreadsheets-for-more-than-what-they-are-for/</guid>
+      <description>I am surprised by how often spreadsheets are used for things they are not really good for when there are better alternatives.</description>
     </item>
     
     <item>

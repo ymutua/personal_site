@@ -6,7 +6,34 @@
     <description>Recent content in Categories on Hi, John here</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 Jan 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 31 Mar 2021 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>crops</title>
+      <link>/categories/crops/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/crops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>livestock</title>
+      <link>/categories/livestock/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/livestock/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>systems</title>
+      <link>/categories/systems/</link>
+      <pubDate>Wed, 31 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/systems/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>workshop</title>
       <link>/categories/workshop/</link>
@@ -22,6 +49,15 @@
       <pubDate>Fri, 01 Jan 2021 14:15:59 -0600</pubDate>
       
       <guid>/categories/meetup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>General</title>
+      <link>/categories/general/</link>
+      <pubDate>Thu, 09 Apr 2020 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/general/</guid>
       <description></description>
     </item>
     
@@ -49,15 +85,6 @@
       <pubDate>Fri, 13 Sep 2019 00:00:00 +0000</pubDate>
       
       <guid>/categories/r/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>General</title>
-      <link>/categories/general/</link>
-      <pubDate>Tue, 09 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>/categories/general/</guid>
       <description></description>
     </item>
     
